@@ -4,7 +4,8 @@
   "info": {
     "singularName": "card",
     "pluralName": "cards",
-    "displayName": "Card"
+    "displayName": "Card",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -32,6 +33,10 @@
       "relation": "manyToOne",
       "target": "api::client.client",
       "inversedBy": "cards"
+    },
+    "isFavorite": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

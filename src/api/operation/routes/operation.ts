@@ -12,6 +12,11 @@ module.exports = {
             method: "GET",
             path: "/getClient",
             handler: "operation.getClient",
+        },
+        {
+            method: "POST",
+            path: "/createClient",
+            handler: "operation.createClient",
         }
     ]
 };

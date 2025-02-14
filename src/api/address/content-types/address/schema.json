@@ -4,7 +4,8 @@
   "info": {
     "singularName": "address",
     "pluralName": "addresses",
-    "displayName": "Address"
+    "displayName": "Address",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -17,8 +18,7 @@
       "type": "enumeration",
       "enum": [
         "Cobrança",
-        "Entrega",
-        "Ambos"
+        "Entrega"
       ]
     },
     "typeLogradouro": {
@@ -60,6 +60,10 @@
       "relation": "manyToOne",
       "target": "api::client.client",
       "inversedBy": "addresses"
+    },
+    "isFavorite": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

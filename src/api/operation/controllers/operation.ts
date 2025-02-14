@@ -9,5 +9,9 @@ export default factories.createCoreController('api::operation.operation', ({ str
     async getClient(ctx){
         const sales = new clientService();
         return sales.getClient(ctx.request.query.id);
-    }
+    },
+    async createClient(ctx){
+        const sales = new clientService();
+        return sales.createClient(ctx.request.body);
+    },
  }));

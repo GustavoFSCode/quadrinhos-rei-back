@@ -401,6 +401,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
 export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
   collectionName: 'addresses';
   info: {
+    description: '';
     displayName: 'Address';
     pluralName: 'addresses';
     singularName: 'address';
@@ -416,6 +417,7 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    isFavorite: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -429,9 +431,7 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
     observation: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     state: Schema.Attribute.String;
-    TypeAddress: Schema.Attribute.Enumeration<
-      ['Cobran\u00E7a', 'Entrega', 'Ambos']
-    >;
+    TypeAddress: Schema.Attribute.Enumeration<['Cobran\u00E7a', 'Entrega']>;
     typeLogradouro: Schema.Attribute.Enumeration<
       ['Rua', 'Avenida', 'Distrito', 'Rodovias', 'Condom\u00EDnio ']
     >;
@@ -516,6 +516,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
 export interface ApiCardCard extends Struct.CollectionTypeSchema {
   collectionName: 'cards';
   info: {
+    description: '';
     displayName: 'Card';
     pluralName: 'cards';
     singularName: 'card';
@@ -530,6 +531,7 @@ export interface ApiCardCard extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     flagCard: Schema.Attribute.Enumeration<['Visa', 'Elo', 'Mastercard']>;
     holderName: Schema.Attribute.String;
+    isFavorite: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::card.card'> &
       Schema.Attribute.Private;
