@@ -12,7 +12,8 @@ class clientService {
                 },
                 populate: {
                     addresses: {},
-                    cards: {}
+                    cards: {},
+                    user: {}
                 }
             }
         )
@@ -129,6 +130,46 @@ class clientService {
                 populate: ['addresses', 'cards', 'user']
             })
 
+        }catch(error){
+            if (error instanceof ApplicationError) {
+                throw new ApplicationError(error.message);
+            }
+            console.error(error);
+            throw new ApplicationError("Ocorreu um erro, tente novamente");
+        }
+    }
+    async editClient (ctx){
+        try{
+            const {clientDocumentId} = ctx.request.params;
+            const {clientEdit} = ctx.request.body;
+            if(!clientDocumentId){
+                throw new ApplicationError("ID não localizado.");
+            }
+            const client = await strapi.documents('api::client.client').findOne({
+                documentId: clientDocumentId,
+                populate: ['addresses', 'cards', 'user']
+            })
+
+            if(!client){
+                throw new ApplicationError("Cliente nao encontrado");
+            }
+
+            await strapi.documents('plugin::users-permissions.user').update({
+                documentId: client.user.documentId,
+                data: clientEdit.user
+            })
+            for(const address of clientEdit.addresses){
+                await strapi.documents('api::address.address').update({
+                    documentId: address.documentId,
+                    data: address
+                })
+            }
+
+            return await strapi.documents('api::client.client').update({
+                documentId: clientDocumentId,
+                data: clientEdit.client,
+                populate: ['addresses', 'cards', 'user']
+            })
         }catch(error){
             if (error instanceof ApplicationError) {
                 throw new ApplicationError(error.message);

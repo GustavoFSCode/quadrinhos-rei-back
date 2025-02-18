@@ -14,4 +14,8 @@ export default factories.createCoreController('api::operation.operation', ({ str
         const sales = new clientService();
         return sales.createClient(ctx.request.body);
     },
+    async editClient(ctx){
+        const sales = new clientService();
+        return sales.editClient(ctx);
+    }
  }));

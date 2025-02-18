@@ -17,6 +17,11 @@ module.exports = {
             method: "POST",
             path: "/createClient",
             handler: "operation.createClient",
+        },
+        {
+            method: "PUT",
+            path: "/editClient/:clientDocumentId",
+            handler: "operation.editClient",
         }
     ]
 };
