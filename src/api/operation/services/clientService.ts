@@ -68,7 +68,8 @@ class clientService {
                         city: field.city,
                         state: field.state,
                         country: field.country,
-                        observation: field.observation
+                        observation: field.observation,
+                        isFavorite: true
                     }
                 })
                 if(field.TypeAddress === 'Cobrança'){
@@ -106,7 +107,8 @@ class clientService {
                     holderName,
                     numberCard,
                     flagCard,
-                    safeNumber
+                    safeNumber,
+                    isFavorite: true
                 }
             })
 

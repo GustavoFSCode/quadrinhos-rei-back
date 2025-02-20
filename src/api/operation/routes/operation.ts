@@ -27,6 +27,11 @@ module.exports = {
             method: "DELETE",
             path: "/deleteUser/:userDocumentId",
             handler: "operation.deleteUser",
+        },
+        {
+            method: "POST",
+            path: "/createCard/:clientDocumentId",
+            handler: "operation.createCard",
         }
     ]
 };
