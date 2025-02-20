@@ -178,5 +178,6 @@ class clientService {
             throw new ApplicationError("Ocorreu um erro, tente novamente");
         }
     }
+   
 
 } export {clientService}

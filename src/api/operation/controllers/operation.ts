@@ -4,6 +4,7 @@
 
 import { factories } from '@strapi/strapi'
 import { clientService } from '../services/clientService';
+import { UserService } from '../services/userService';
 
 export default factories.createCoreController('api::operation.operation', ({ strapi }) => ({
     async getClient(ctx){
@@ -17,5 +18,9 @@ export default factories.createCoreController('api::operation.operation', ({ str
     async editClient(ctx){
         const sales = new clientService();
         return sales.editClient(ctx);
+    },
+    async deleteUser(ctx){
+        const sales = new UserService();
+        return sales.deleteUser(ctx);
     }
  }));

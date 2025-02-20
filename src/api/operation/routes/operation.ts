@@ -22,6 +22,11 @@ module.exports = {
             method: "PUT",
             path: "/editClient/:clientDocumentId",
             handler: "operation.editClient",
+        },
+        {
+            method: "DELETE",
+            path: "/deleteUser/:userDocumentId",
+            handler: "operation.deleteUser",
         }
     ]
 };
