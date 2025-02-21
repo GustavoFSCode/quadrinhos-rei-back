@@ -32,6 +32,16 @@ module.exports = {
             method: "POST",
             path: "/createCard/:clientDocumentId",
             handler: "operation.createCard",
+        },
+        {
+            method: "DELETE",
+            path: "/deleteCard/:cardDocumentId",
+            handler: "operation.deleteCard",
+        },
+        {
+            method: "PUT",
+            path: "/editCard/:cardDocumentId",
+            handler: "operation.editCard",
         }
     ]
 };

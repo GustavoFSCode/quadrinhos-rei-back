@@ -27,6 +27,13 @@ export default factories.createCoreController('api::operation.operation', ({ str
     async createCard(ctx){
         const sales = new cardService();
         return sales.createCard(ctx);
-
+    },
+    async deleteCard(ctx){
+        const sales = new cardService();
+        return sales.deleteCard(ctx);
+    },
+    async editCard(ctx){
+        const sales = new cardService();
+        return sales.editCard(ctx);
     }
  }));
